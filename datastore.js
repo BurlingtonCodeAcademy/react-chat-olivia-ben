@@ -6,7 +6,7 @@ class DataStore {
   constructor(dbUrl, dbName, dbCollection) {
     this.dbUrl = dbUrl;
     this.dbName = dbName;
-    this.dbcollection = dbCollection;
+    this.dbCollection = dbCollection;
     this.dbClient = null;
   }
 
@@ -24,16 +24,19 @@ class DataStore {
         useUnifiedTopology: true,
       })
       console.log('Connected to the database')
+      
       return this.dbClient
     }
   }
 
   //set up collection, from which data will come
   async collection() {
+    
     const client = await this.client()
     const database = client.db(this.dbName)
     const collection = database.collection(this.dbCollection)
-    return collection
+  
+     return collection
   }
 
   //add a document to the collection
