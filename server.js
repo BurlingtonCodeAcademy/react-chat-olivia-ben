@@ -8,6 +8,7 @@ const staticDir = process.env.DEV ? "./client/public" : "./client/build";
 
 app.use(express.static(staticDir));
 
+
 //let myDb = new DataStore(` mongodb+srv://olivianbensdb:${process.env.DBPASS}@cluster0.ocghx.mongodb.net/<dbname>?retryWrites=true&w=majority`, 'olivianbensdb',  //collName 
 //app.get('/chat/allmessages', dbFunctions.getAllMessages)
 //app.post('/chat/sendMessage', dbFunctions.sendMessage)

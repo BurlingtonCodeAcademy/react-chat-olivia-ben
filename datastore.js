@@ -1,21 +1,11 @@
 //import mongo and mongoose
 const { MongoClient, ObjectId } = require('mongodb')
-const { mongoose } = require('mongoose')
-
-//establish connection to db
-mongoose.connect(/* database name */)
-//reference db connection
-let myDB = mongoose.connection
 
 //error handling
 myDb.on('error', console.error.bind(console, 'Connection error: '))
 
 //generate schema
-const messageSchema = new mongoose.Schema({
-  date: Date,
-  name: String,
-  body: String,
-})
+
 
 const roomSchema = new mongoose.Schema({
   date: Date,
