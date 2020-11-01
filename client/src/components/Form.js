@@ -11,7 +11,7 @@ const Form = () => {
 
   const handleForm = (evt) => {
     evt.preventDefault()
-    console.log(sender, msg)
+    console.log(sender,':',  msg)
     let msgSent = {
       sender: sender,
       body: msg,
@@ -45,12 +45,12 @@ const Form = () => {
     } else {
       console.log('theres not a sender')
     }
-  }, [1000])
+  }, [10000])
 
 
   return (
-    <div>
-      <form method="POST" action="/chat" onSubmit={handleForm}>
+    <div>                         
+      <form onSubmit={handleForm} method="POST" action="/send" >
         <input id="name" type="text" placeholder="enter user name" {...bindSender} />
         <input id="name" type="text" placeholder="enter recipient name" {...bindGetter} />
         <input id="message" type="text" placeholder="enter message" {...bindMsg} />
@@ -64,3 +64,4 @@ const Form = () => {
 }
 
 export default Form;
+// action value was ='/send'

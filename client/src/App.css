@@ -8,4 +8,5 @@
   border: 2px solid rgb(18, 206, 206);
   width: 300px;
   height: 300px;
+  overflow-y: scroll;
 }

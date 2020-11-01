@@ -6,7 +6,6 @@ import DisplayWindow from './components/DisplayWindow'
 
 function App() {
 
-  
 
 
 

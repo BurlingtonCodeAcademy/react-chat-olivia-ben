@@ -41,6 +41,7 @@ class DataStore {
 
   //add a document to the collection
   async insert(object) {
+    console.log(object)
     //establish response variable and set fields to empty
     //these will be changed depending on the method's action
     let response = { status: null, error: null }
@@ -142,9 +143,6 @@ class DataStore {
     return response
   }
 }
-
-//error handling
-//myDb.on('error', console.error.bind(console, 'Connection error: '))
 
 module.exports = DataStore
 
