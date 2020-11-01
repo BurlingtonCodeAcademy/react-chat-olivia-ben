@@ -1,7 +1,5 @@
-//imports
-//maybe not needed anymore since it's in the dbFunctions file?
+//imports and variables
 require("dotenv").config();
-
 const dbFunctions = require('./dbFunctions')
 const express = require("express");
 const path = require("path");
@@ -16,23 +14,19 @@ app.use(express.static(staticDir));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-//database
-// const DataStore = require('./datastore.js')
-// let dataBase = new DataStore(url, "oliviandbensdb", "messages")
 
 //routes
 //homepage
-// app.post('/chat', (req, res) => {
-//   res.sendFile(path.resolve('./src/app.js'))
-// })
+app.post('/chat', (req, res) => {
+  res.sendFile(path.resolve('./src/app.js'))
+})
 //send message to database
 app.post('/chat/sendmessage', dbFunctions.sendMsg)
 
 //display all messages
 app.get('/chat/allmessages', dbFunctions.displayMsgs)
 
+//listen for the port and print which port the app is running on in the console
 app.listen(port, () => {
   console.log('listening on port: ' + port)
 })
-
-//handle logic and moving data around

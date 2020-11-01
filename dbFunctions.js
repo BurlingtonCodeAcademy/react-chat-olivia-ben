@@ -1,9 +1,11 @@
-const DataStore = require('./datastore.js')
+//imports and variables
 require('dotenv').config()
+//import our datastore file for use by methods beloew
+const DataStore = require('./datastore.js')
+//database connection
 const url = `mongodb+srv://olivianbensdb:${process.env.DBPASS}@cluster0.ocghx.mongodb.net/`
 
-
-
+//creating database as new instance of DataStore 
 let dataBase = new DataStore(url, "oliviandbensdb", "messages")
 
 //function to display messages 
@@ -15,25 +17,22 @@ const displayMsgs = async (req, res) => {
   console.log(response)
 }
 
-//function for sending message - only to backend right now
+//function for sending message to the chat window
 const sendMsg = async (req, res) => {
-  
+  //get the contents of the user's message and set it to a variable
   let msg = req.body
-  console.log(msg)
+  //set the time and date of when the message was sent to a variable
   let date = new Date().toLocaleDateString()
   //define object for each message sent
   let msgSent = {
     sender: msg.sender,
     body: msg.body,
-    recipient: msg.recipient,
     sent: date
   }
-  //
+  //this is the action of inserting the user's message and info to the collection database
   let response = await dataBase.insert(msgSent)
-  // res.send(response.data)
-  console.log(response)
-  //error handling - if no errors present, getAll() function will be called to show messages sent already
-
+  
+  //error handling - if no errors present, getAll() function will be called to show messages sent 
   if (response.status === 'ok') {
     let messages = await dataBase.getAll()
     //if no errors in response AND no errors in messages, proceed with action to DB
@@ -49,23 +48,8 @@ const sendMsg = async (req, res) => {
 
 
 
-
-
+//export functions to be used in server
 module.exports = {
   displayMsgs: displayMsgs,
   sendMsg: sendMsg
 }
-
-
-
-
-
-
-
-// testing sendMsg function - uncomment when ready to test
-// sendMsg({
-//   sender: "Ben",
-//   body: "Now I'm just thinking about henry street sandwiches and getting hungry...",
-//   recipient: "Olivia"
-
-// })

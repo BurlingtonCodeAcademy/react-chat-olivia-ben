@@ -1,30 +1,26 @@
+//imports
 import React, { useState, useEffect } from 'react'
 import '../App.css'
 
 function DisplayWindow() {
+  //create message and setMsgs variable. Set their states to an empty array in order to receive info later.
   const [msgs, setMsgs] = useState([])
-  
 
+  //useEffect hook gathers messages from the database and we print them below using .map
   useEffect(() => {
+    //if message length is false / is there is no message length
     if (!msgs.length) {
-      console.log('searching for messages')
+      //get message history from database
       fetch('/chat/allmessages')
         .then(res => res.json())
         .then(msgs => {
-          
-
-          console.log(msgs)
-          //turn 'msg' into display-able message
-
-          // let msg = {
-          //   sender: sender,
-          //   body: body
-          // }
+          //read over list of messages in database and update the msg value to include all messages found there
           setMsgs(msgs)
         })
     }
-  }, [10000])
+  }, [])
 
+  //maps over array of message objects and places them in display window div
   return (
     <div id="displaywindow">
       {msgs.map(msg => {
@@ -32,7 +28,7 @@ function DisplayWindow() {
       })}
     </div>
   )
-
 }
 
+//export to be used in app.js
 export default DisplayWindow;
