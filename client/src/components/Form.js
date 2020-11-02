@@ -36,7 +36,7 @@ const Form = () => {
 
 
   return (
-    <div>                         
+    <div id="form">                         
       <form onSubmit={handleForm} method="POST" action="/send" >
         <input id="name" type="text" placeholder="enter user name" {...bindSender} />
         <input id="message" type="text" placeholder="enter message" {...bindMsg} />

@@ -11,3 +11,34 @@
   height: 300px;
   overflow-y: scroll;
 }
+
+#container {
+  display: grid;
+  grid-template-columns: 400px 150px;
+  grid-template-rows: 100px 400px 100px;
+  grid-template-areas:
+    "h1 h1"
+    "room allrooms"
+    "form form";
+}
+
+h1 {
+  grid-area: h1;
+  justify-self: center;
+}
+
+#mainroom {
+  width:375px;
+  height: 375px;
+  margin: 0px;
+  grid-area: room;
+}
+
+#allrooms {
+  grid-area: allrooms;
+}
+
+#form {
+  grid-area: form;
+  justify-self: center;
+}

@@ -1,9 +1,15 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import '../App.css'
 
-const Roomone = () => {
+import DisplayWindow from './DisplayWindow'
 
-  
+function Roomone() {
+  return (
+    <div className="room">
+      <p>Room One</p>
+      <DisplayWindow />
+    </div>
+  )
 }
 
 export default Roomone;

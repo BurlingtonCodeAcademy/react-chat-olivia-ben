@@ -1,8 +1,17 @@
-import React, {useState} from 'react'
+import React from 'react'
 import '../App.css'
 
-const Mainroom = () => {
+import DisplayWindow from './DisplayWindow'
 
+function Mainroom() {
+  
+  return (
+    <div id="mainroom">
+      <p>Main Room</p>
+      <DisplayWindow />
+        
+    </div>
+  )
 }
 
 export default Mainroom;
