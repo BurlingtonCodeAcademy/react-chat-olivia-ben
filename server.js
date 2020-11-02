@@ -29,9 +29,6 @@ app.post('/chat/sendmessage', dbFunctions.sendMsg)
 app.get('/chat/allmessages', dbFunctions.displayMsgs)
 
 
-//roomone
-app.get('/Roomone', (req, res)  
-
 
 //listen for the port and print which port the app is running on in the console
 app.listen(port, () => {

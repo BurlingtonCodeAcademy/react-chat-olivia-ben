@@ -1,5 +1,5 @@
 /* general css for the page */
-.App {
+#app {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,7 +7,7 @@
 /* styling for message window */
 #displaywindow {
   border: 2px solid rgb(18, 206, 206);
-  width: 300px;
+  width: auto;
   height: 300px;
   overflow-y: scroll;
 }
@@ -27,7 +27,7 @@ h1 {
   justify-self: center;
 }
 
-#mainroom {
+.room {
   width:375px;
   height: 375px;
   margin: 0px;

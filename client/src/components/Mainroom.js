@@ -6,7 +6,7 @@ import DisplayWindow from './DisplayWindow'
 function Mainroom() {
   
   return (
-    <div id="mainroom">
+    <div className="room">
       <p>Main Room</p>
       <DisplayWindow />
         
