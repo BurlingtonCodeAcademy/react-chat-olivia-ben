@@ -1,38 +1,44 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* general css for the page */
+#app {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+/* styling for message window */
+#displaywindow {
+  border: 2px solid rgb(18, 206, 206);
+  width: auto;
+  height: 300px;
+  overflow-y: scroll;
 }
 
-.App-link {
-  color: #61dafb;
+#container {
+  display: grid;
+  grid-template-columns: 400px 150px;
+  grid-template-rows: 100px 400px 100px;
+  grid-template-areas:
+    "h1 h1"
+    "room allrooms"
+    "form form";
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1 {
+  grid-area: h1;
+  justify-self: center;
+}
+
+.room {
+  width:375px;
+  height: 375px;
+  margin: 0px;
+  grid-area: room;
+}
+
+#allrooms {
+  grid-area: allrooms;
+}
+
+#form {
+  grid-area: form;
+  justify-self: center;
 }
