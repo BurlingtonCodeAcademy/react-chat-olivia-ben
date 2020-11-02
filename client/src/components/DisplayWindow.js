@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
 
+//This function displays messages from the database.
 function DisplayWindow() {
   //create message and setMsgs variable. Set their states to an empty array in order to receive info later.
   const [msgs, setMsgs] = useState([]);
@@ -33,5 +34,5 @@ function DisplayWindow() {
   );
 }
 
-//export to be used in app.js
+//export component to be used elsewhere in React
 export default DisplayWindow;

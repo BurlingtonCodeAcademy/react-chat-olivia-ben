@@ -14,7 +14,6 @@ app.use(express.static(staticDir));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-
 //routes
 //homepage
 app.post('/chat', (req, res) => {
@@ -27,7 +26,6 @@ app.post('/chat/sendmessage', dbFunctions.sendMsg)
 
 //display all messages
 app.get('/chat/allmessages', dbFunctions.displayMsgs)
-
 
 
 //listen for the port and print which port the app is running on in the console

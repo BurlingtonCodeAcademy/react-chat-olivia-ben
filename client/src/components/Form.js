@@ -4,7 +4,7 @@ import { useInput } from '../useInput'
 import '../App.css'
 
 const Form = () => {
-//variables for sender and message. they contain a value, bind, and reset option. they start as empty strings.
+  //variables for sender and message. they contain a value, bind, and reset option. they start as empty strings.
   const { value: sender, bind: bindSender, reset: resetSender } = useInput('')
   const { value: msg, bind: bindMsg, reset: resetMsg } = useInput('')
 
@@ -26,26 +26,23 @@ const Form = () => {
       //this turns the body of the user's message into a JSON object for use by the database collection
       body: JSON.stringify(msgSent)
     }).then(res => res.json())
-    //after the message is sent to the database, the message field on the form is cleared
+      //after the message is sent to the database, the message field on the form is cleared
       .then(msgs => {
         resetMsg()
       })
-    }
-
-    //we need a useEffect hook somewhere (probably app.js... ) to look for new messages every 10 seconds.
-
-
+  }
+  //below is the form a user uses to write in their name and message to be printed in the display window
   return (
-    <div id="form">                         
+    <div id="form">
       <form onSubmit={handleForm} method="POST" action="/send" >
         <input id="name" type="text" placeholder="enter user name" {...bindSender} />
         <input id="message" type="text" placeholder="enter message" {...bindMsg} />
         <input type="submit" value="send" />
-      
+
       </form>
     </div>
   )
 
 }
-
+//export component to be used elsewhere in React
 export default Form;
